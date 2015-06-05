@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
     @IBAction func pressRock(sender: UIButton) {
         let resultsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("resultsViewController") as! ResultsViewController
-        
+        resultsViewController.userChoice = getUserShape(sender)
         presentViewController(resultsViewController, animated: true, completion: nil)
     }
     
@@ -40,10 +40,24 @@ class ViewController: UIViewController {
         if segue.identifier == "paper" {
             
             let resultsViewController = segue.destinationViewController as! ResultsViewController
+            resultsViewController.userChoice = getUserShape(sender as! UIButton)
             
         }
     }
     
-
+    private func getUserShape(sender: UIButton) -> String {
+        
+        if sender == rockButton {
+            return "Rock"
+        }
+            
+        else if sender == paperButton {
+            return "Paper"
+        }
+            
+        else {
+            return "Scissors"
+        }
+    }
 }
 

@@ -22,7 +22,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7Ka-fw-O2v" kind="show" id="iel-Gq-0Ty"/>
+                                    <segue destination="7Ka-fw-O2v" kind="show" identifier="paper" id="iel-Gq-0Ty"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TP4-u6-qZi">
@@ -90,7 +90,6 @@
                         <outlet property="paperButton" destination="TP4-u6-qZi" id="s4X-TI-hWB"/>
                         <outlet property="rockButton" destination="Zm2-6l-r5j" id="1f0-AS-ueq"/>
                         <outlet property="scissorsButton" destination="OYu-M5-exU" id="pBH-8a-k9t"/>
-                        <segue destination="7Ka-fw-O2v" kind="presentation" identifier="paper" id="sNr-Rj-4OV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -116,17 +115,36 @@
                                     <action selector="playAgain" destination="7Ka-fw-O2v" eventType="touchUpInside" id="qNc-0S-OyB"/>
                                 </connections>
                             </button>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="itsATie" translatesAutoresizingMaskIntoConstraints="NO" id="o4L-8E-zZG">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NO6-K0-HIc">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="o4L-8E-zZG" secondAttribute="centerX" constant="-21" id="4Yy-fV-Kfa"/>
+                            <constraint firstItem="o4L-8E-zZG" firstAttribute="top" secondItem="wy6-4g-LhO" secondAttribute="bottom" constant="146" id="PWm-pZ-gVP"/>
+                            <constraint firstItem="NO6-K0-HIc" firstAttribute="top" secondItem="o4L-8E-zZG" secondAttribute="bottom" constant="65" id="TOP-Br-C68"/>
                             <constraint firstAttribute="centerX" secondItem="lal-Q4-HCg" secondAttribute="centerX" constant="-13.5" id="bg6-Y6-cfm"/>
+                            <constraint firstAttribute="centerX" secondItem="NO6-K0-HIc" secondAttribute="centerX" constant="-15.5" id="blJ-dV-cU9"/>
                             <constraint firstItem="SHg-QD-FzW" firstAttribute="top" secondItem="lal-Q4-HCg" secondAttribute="bottom" constant="25" id="faZ-Od-qx6"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="lal-Q4-HCg"/>
+                                <exclude reference="o4L-8E-zZG"/>
+                                <exclude reference="NO6-K0-HIc"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4Yy-fV-Kfa"/>
+                                <exclude reference="PWm-pZ-gVP"/>
+                                <exclude reference="TOP-Br-C68"/>
+                                <exclude reference="blJ-dV-cU9"/>
                                 <exclude reference="bg6-Y6-cfm"/>
                                 <exclude reference="faZ-Od-qx6"/>
                             </mask>
@@ -134,25 +152,33 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="lal-Q4-HCg"/>
+                                <include reference="o4L-8E-zZG"/>
+                                <include reference="NO6-K0-HIc"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4Yy-fV-Kfa"/>
+                                <include reference="PWm-pZ-gVP"/>
+                                <include reference="TOP-Br-C68"/>
+                                <include reference="blJ-dV-cU9"/>
                                 <include reference="bg6-Y6-cfm"/>
                                 <include reference="faZ-Od-qx6"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="resultImage" destination="o4L-8E-zZG" id="jtv-jf-tbY"/>
+                        <outlet property="resultText" destination="NO6-K0-HIc" id="4Tw-zI-zfQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFd-1F-9Je" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111.5" y="364"/>
+            <point key="canvasLocation" x="1854" y="315"/>
         </scene>
     </scenes>
     <resources>
+        <image name="itsATie" width="183" height="200"/>
         <image name="paper" width="75" height="65"/>
         <image name="rock" width="75" height="65"/>
         <image name="scissors" width="75" height="65"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="sNr-Rj-4OV"/>
-    </inferredMetricsTieBreakers>
 </document>
